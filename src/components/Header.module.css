@@ -1,0 +1,25 @@
+.reposHeading {
+    margin: 0%;
+    padding: 0%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-block: 1rem;
+    border-bottom: 1px solid rgb(130, 130, 197);
+    text-align: center;
+    align-items: center;
+}
+
+.Header, .center, .loadButton {
+    margin-block: .5rem;
+    text-align: center;
+}
+
+.nextPage {
+    padding: .3rem;
+    background-color: rgb(164, 164, 168);
+    width: 100%;
+    margin-bottom: 8rem;
+}
+
+.nextPage:hover {
+    cursor: pointer;
+}
