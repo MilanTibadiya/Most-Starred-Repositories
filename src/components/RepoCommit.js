@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { LineChart, CartesianGrid, Legend, ResponsiveContainer, Line, XAxis, YAxis, Tooltip } from "recharts";
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 
 import classes from "./RepoCommit.module.css";
 

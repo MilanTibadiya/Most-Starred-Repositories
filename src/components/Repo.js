@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
-import { TbListDetails } from "react-icons/tb";
+import { AiOutlineRight, AiOutlineDown } from "react-icons/ai";
 
 import RepoCommit from "./RepoCommit";
 import classes from "./Repo.module.css";
@@ -14,7 +14,7 @@ const Repo = ({ repo }) => {
 
   const handleRepoSelect = (item) => {
     // if (item?.id === selectedRepo?.id) {
-      if(item === selectedRepo) {
+    if (item === selectedRepo) {
       setSelectedRepo(null);
       return;
     }
@@ -36,10 +36,10 @@ const Repo = ({ repo }) => {
                 <p className={classes.repoDes}>{item.description}</p>
                 <p className={classes.repoStar}>
                   <span className={classes.repoSpan}>
-                    Stars - {item.stargazers_count}
+                    Stars-{item.stargazers_count}
                   </span>
                   <span className={classes.repoSpan}>
-                    Issues - {item.open_issues_count}
+                    Issues-{item.open_issues_count}
                   </span>
                   <span>
                     Last pushed at{" "}
@@ -53,7 +53,8 @@ const Repo = ({ repo }) => {
               className={classes.repoContainer2}
               onClick={() => handleRepoSelect(item)}
             >
-              Details <TbListDetails />
+              TbListDetails
+              {selectedRepo === item ? <AiOutlineDown /> : <AiOutlineRight />}
             </div>
           </div>
           {selectedRepo === item && <RepoCommit item={item} />}
