@@ -1,25 +1,32 @@
 .reposHeading {
     margin: 0%;
     padding: 0%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-block: 1rem;
-    border-bottom: 1px solid rgb(130, 130, 197);
+    border-bottom: 1px solid rgb(81, 81, 240);
     text-align: center;
     align-items: center;
+    background-color: rgb(180, 194, 241);
 }
 
-.Header, .center, .loadButton {
-    margin-block: .5rem;
+.Header, .center, .loadButton, .HeaderRepo {
+    margin-block: 1rem;
     text-align: center;
 }
 
-.nextPage {
-    padding: .3rem;
-    background-color: rgb(164, 164, 168);
-    width: 100%;
-    margin-bottom: 8rem;
+.HeaderRepo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 21px;
 }
 
-.nextPage:hover {
-    cursor: pointer;
+.pageButton {
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.pageButton>button>a {
+    color: #fff;
+    text-decoration: none;
 }

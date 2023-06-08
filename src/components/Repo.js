@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 import { AiOutlineRight, AiOutlineDown } from "react-icons/ai";
-
+import Button from '@mui/material/Button';
 import RepoCommit from "./RepoCommit";
 import classes from "./Repo.module.css";
 import { useSelector } from "react-redux";
@@ -33,7 +33,11 @@ const Repo = ({ repo }) => {
                   {item.name}{" "}
                   <span className={classes.repoBadge}>{item.visibility}</span>
                 </h2>
-                <p className={classes.repoDes}>{item.description}</p>
+                { item.description ?
+                  <p className={classes.repoDes}>{item.description}</p>
+                  :
+                  <p className={classes.repoDes}>Description not available</p>
+                }
                 <p className={classes.repoStar}>
                   <span className={classes.repoSpan}>
                     Stars-{item.stargazers_count}
@@ -49,13 +53,14 @@ const Repo = ({ repo }) => {
                 </p>
               </div>
             </div>
-            <div
+            <Button
+              variant="outlined"
               className={classes.repoContainer2}
               onClick={() => handleRepoSelect(item)}
             >
-              TbListDetails
+              Activity {"   "}
               {selectedRepo === item ? <AiOutlineDown /> : <AiOutlineRight />}
-            </div>
+            </Button>
           </div>
           {selectedRepo === item && <RepoCommit item={item} />}
         </div>

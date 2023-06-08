@@ -5,7 +5,7 @@
     justify-content: flex-start;
     gap: 2rem;
     align-items: center;
-    box-shadow: 1px 2px #b9b0b0;
+    box-shadow: 1px 0px #b9b0b0;
     margin-left: 50%;
     transform: translate(-50%, 0);
     margin-bottom: 1rem;
@@ -13,9 +13,10 @@
 
 .repoContainer img {
     height: 110px;
-    width: 120px;
+    width: 100px;
     padding: 1.6rem;
-    border-radius: 40%;
+    object-fit: scale-down;
+    border-radius: 50px;
 }
 
 .repoContainer h2 {
@@ -30,8 +31,6 @@
     border-radius: 15%;
     padding: .2rem;
 }
-
-/* .repoRight{} */
 
 .repoDes {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -67,6 +66,9 @@
     border: 1px solid rgb(209, 205, 205);
     border-radius: 12%;
     justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 2rem;
 }
 
 .repoContainer2:hover {
@@ -76,9 +78,6 @@
 .repoContainer2 select {
     padding: .2rem;
 }
-
-/* .drop {} */
-.mainContainer{}
 
 @media screen and (max-width: 764px) {
     h2 {
@@ -99,10 +98,5 @@
     span, u {
         font-weight: 100;
         font-size: .8rem;
-    }
-
-    .mainContainer {
-        /* display: flex; */
-        /* flex-direction: column; */
     }
 }

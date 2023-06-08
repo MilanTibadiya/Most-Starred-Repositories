@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import Repo from './Repo';
-import { useDispatch } from 'react-redux';
-import { reposAction } from '../store/reposSlicer';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import classes from './Header.module.css';
 
 function Header() {
@@ -35,7 +36,7 @@ function Header() {
             const newRepo = res.data.items;
       
             setRepo((prevRepo) => [
-              ...new Set([...prevRepo, ...newRepo]),
+              ...new Set([...newRepo]),
             ]);
           } catch (error) {
             alert("Error while fetching repositories");
@@ -56,12 +57,12 @@ function Header() {
 
   return (
     <>
-     <div>
+     <div id="home">
      <h1 className={classes.reposHeading}>Github | Repositories</h1>
 
      <div className={classes.Header}>
         <label htmlFor="timeRange" className={classes.range}>
-          Time Range:
+          Time Range:{" "}
         </label>
         <select
           id="timeRange"
@@ -73,16 +74,26 @@ function Header() {
           <option value="1month">1 Month</option>
         </select>
       </div>
-      <h2 className={classes.Header}>Most Starred Repositories</h2>
+      <h2 className={classes.HeaderRepo}>Most Starred Repositories</h2>
        
       <Repo repo={repo}/>
 
-      {loading && <p className={classes.center}>Loading...<AiOutlineLoading3Quarters/></p>}
-      <button className={classes.nextPage}
-        onClick={() => {
+      {loading && <p className={classes.center}><CircularProgress/></p>}
+      
+      <ButtonGroup
+      disableElevation
+      variant="contained"
+      aria-label="Disabled elevation buttons"
+      className={classes.pageButton}
+    >
+      <Button  onClick={() => {
+          setPage((prev) => prev - 1);
+        }}><ArrowBackIosIcon/>
+        <a href='#home'>PREV</a></Button>
+      <Button onClick={() => {
           setPage((prev) => prev + 1);
-        }}
-      > Next Page</button>
+        }}><ArrowForwardIosIcon/><a href='#home'>NEXT</a></Button>
+    </ButtonGroup>
      </div> 
     </>
   )
